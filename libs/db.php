@@ -30,7 +30,7 @@ class db{
         $return = $this->db->query($query);
         $ret = [];
 
-        while ($row = $return->fetch_all()) {
+        while ($row = $return->fetch_assoc()) {
             $ret[] = $row;
         }
 

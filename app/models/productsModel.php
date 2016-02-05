@@ -19,4 +19,10 @@ class productsModel extends db
             'price'     => $price
         ));
     }
+
+    public function getCategoryById(){
+        return $this->fetchAll('SELECT products.* FROM categories_products
+                                LEFT JOIN products ON categories_products.product_id = products.id
+                                where categories_products.category_id = 1');
+    }
 }
