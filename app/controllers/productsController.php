@@ -2,9 +2,14 @@
 
 class productsController
 {
-    public function showAction($id = 1, $name = 'dupa')
+    public function showAction($id)
     {
-        echo 'id = ' . $id . '<br>';
-        echo 'name = ' . $name;
+        $model = new productsModel();
+
+        echo '<pre>';
+        $model->newProduct('Produkt = ' . time(), rand());
+
+        var_dump($model->getProductById($id));
+        var_dump($model->getAllProducts());
     }
 }
