@@ -1,16 +1,16 @@
 <?php
 
-class categoriesController{
+class categoriesController extends controller
+{
+    public function showAction($id)
+    {
+        $modelCategory  = new categoriesModel();
+        $model          = new productsModel();
 
-    public function showAction($id){
+        $this->view->set('category', $modelCategory->getCategoryById($id));
+        $this->view->set('products', $model->getCategoryById($id));
 
-        $modelCategory = new categoriesModel();
-        $model = new productsModel();
-
-        echo '<pre>';
-        var_dump($modelCategory->getCategoryById($id));
-        var_dump($model->getCategoryById());
-
+        $this->view->render('categories/show.phtml');
     }
 
 }

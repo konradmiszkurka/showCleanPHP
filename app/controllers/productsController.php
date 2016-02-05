@@ -1,15 +1,19 @@
 <?php
 
-class productsController
+/**
+ * Class productsController
+ */
+class productsController extends controller
 {
     public function showAction($id)
     {
         $model = new productsModel();
-
-        echo '<pre>';
-       // $model->newProduct('Produkt = ' . time(), rand());
-
-        var_dump($model->getProductById($id));
+        // $model->newProduct('Produkt = ' . time(), rand());
+       // var_dump($model->getProductById($id));
         // var_dump($model->getAllProducts());
+
+        $this->view
+            ->set('product', $model->getProductById($id))
+            ->render('products/show.phtml');
     }
 }

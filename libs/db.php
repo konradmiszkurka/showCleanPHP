@@ -20,7 +20,7 @@ class db{
     public function fetchOne($query)
     {
         $result = $this->db->query($query);
-        $row = $result->fetch_assoc();
+        $row = $result->fetch_object();
         return $row;
     }
 
@@ -30,7 +30,7 @@ class db{
         $return = $this->db->query($query);
         $ret = [];
 
-        while ($row = $return->fetch_assoc()) {
+        while ($row = $return->fetch_object()) {
             $ret[] = $row;
         }
 

@@ -6,4 +6,3 @@ include_once 'libs/autoload.php';
 $router = new router();
 $app = new app($router->get());
 $app->run();
-
